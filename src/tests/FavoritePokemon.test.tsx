@@ -6,7 +6,7 @@ import App from '../App';
 
 test('', () => {});
 
-describe('Testa o componente FavoritePokemon', () => {
+describe('Testando o componente FavoritePokemon', () => {
   test('Testa se é exibida na tela a mensagem "No favorite pokemon found" caso a pesoa não tenha favoritado nenhum pokemon', () => {
     renderWithRouter(<FavoritePokemon />);
 
