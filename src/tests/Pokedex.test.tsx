@@ -5,6 +5,8 @@ import renderWithRouter from '../renderWithRouter';
 
 test('', () => {});
 
+const pokemonNameTestId = 'pokemon-name';
+
 describe('Testando o componente Pokedex', () => {
   test('Testa se a página contém um heading h2 com o texto "Encountered Pokémon"', () => {
     renderWithRouter(<App />);
@@ -17,7 +19,7 @@ describe('Testando o componente Pokedex', () => {
   test('Testa se é exibido o próximo pokemon da lista ao clicar no botão "Próximo Pokémon"', async () => {
     renderWithRouter(<App />);
 
-    const currentPokemon = screen.getByTestId('pokemon-name');
+    const currentPokemon = screen.getByTestId(pokemonNameTestId);
     const nextPokemonBtn = screen.getByRole('button', { name: 'Próximo Pokémon' });
     expect(nextPokemonBtn).toBeInTheDocument();
 
@@ -41,7 +43,7 @@ describe('Testando o componente Pokedex', () => {
   test('Testa se é mostrado apenas um pokemon por vez', () => {
     renderWithRouter(<App />);
 
-    const pokemons = screen.queryAllByTestId('pokemon-name');
+    const pokemons = screen.queryAllByTestId(pokemonNameTestId);
 
     expect(pokemons).toHaveLength(1);
   });
@@ -65,7 +67,7 @@ describe('Testando o componente Pokedex', () => {
     renderWithRouter(<App />);
 
     const allBtn = screen.getByRole('button', { name: 'All' });
-    const currentPokemon = screen.getByTestId('pokemon-name');
+    const currentPokemon = screen.getByTestId(pokemonNameTestId);
     expect(currentPokemon).toHaveTextContent('Pikachu');
     expect(allBtn).toBeVisible();
 
@@ -84,7 +86,7 @@ describe('Testando o componente Pokedex', () => {
   test('Testa se a pokedex contém um botão para resetar o filtro', async () => {
     renderWithRouter(<App />);
 
-    const currentPokemon = screen.getByTestId('pokemon-name');
+    const currentPokemon = screen.getByTestId(pokemonNameTestId);
     const resetBtn = screen.getByRole('button', { name: 'All' });
     expect(resetBtn).toBeVisible();
 
