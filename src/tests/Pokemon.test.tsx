@@ -1,6 +1,5 @@
-import { getByRole, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { click } from '@testing-library/user-event/dist/types/convenience';
 import App from '../App';
 import renderWithRouter from '../renderWithRouter';
 

@@ -5,11 +5,13 @@ import renderWithRouter from '../renderWithRouter';
 
 test('', () => {});
 
+const moreDetails = 'More details';
+
 describe('Testando o componente PokemonDetails', () => {
   test('Testa se as informações detalhadas do pokemon são mostradas na tela', async () => {
     renderWithRouter(<App />);
 
-    const detailsBtn = screen.getByRole('link', { name: 'More details' });
+    const detailsBtn = screen.getByRole('link', { name: moreDetails });
     await userEvent.click(detailsBtn);
 
     const pokemonName = screen.getByText('Pikachu Details');
@@ -28,7 +30,7 @@ describe('Testando o componente PokemonDetails', () => {
     renderWithRouter(<App />);
     const altText = 'Pikachu location';
 
-    const detailsBtn = screen.getByRole('link', { name: 'More details' });
+    const detailsBtn = screen.getByRole('link', { name: moreDetails });
     await userEvent.click(detailsBtn);
 
     const locations = screen.getByRole('heading', { name: 'Game Locations of Pikachu' });
@@ -45,7 +47,7 @@ describe('Testando o componente PokemonDetails', () => {
   test('Testa se o usuário pode favoritar um pokemon por meio da página de detalhes', async () => {
     renderWithRouter(<App />);
 
-    const detailsBtn = screen.getByRole('link', { name: 'More details' });
+    const detailsBtn = screen.getByRole('link', { name: moreDetails });
     await userEvent.click(detailsBtn);
 
     const favoriteBtn = screen.getByRole('checkbox', { name: 'Pokémon favoritado?' });
